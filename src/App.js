@@ -6,6 +6,7 @@ import TodoForm from './components/TodoForm';
 import PostList from './components/PostList';
 import Pagination from './components/Pagination';
 import PostFilterForm from './components/PostFilterForm';
+import Clock from './components/Clock';
 
 function App() {
 
@@ -96,12 +97,15 @@ function App() {
     })
   }
 
+  const [hide, setHide] = useState(true);
+
   return (
     <div className="app">
       <h1>From VN With Love</h1>
       {/* <TodoForm onSubmit={handleToDoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
-
+      {hide && <Clock />}
+      <button onClick={() => setHide(!hide)}>Hide Clock</button>
       <PostFilterForm onSubmit={handleFilterChange} />
       <PostList posts={postList} />
       <Pagination
